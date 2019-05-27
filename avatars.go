@@ -5,8 +5,6 @@ import (
 	"image"
 	"image/color"
 	"image/draw"
-	"image/png"
-	"net/http"
 
 	colorHash "mellium.im/xmpp/color"
 )
@@ -36,25 +34,20 @@ func (c *circle) At(x, y int) color.Color {
 	return color.Alpha{0}
 }
 
-// Handler returns an HTTP handler that renders a PNG avatar based on a hash of
-// the request path.
-func Handler() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		c := colorHash.String(r.URL.Path, 187, colorHash.None)
+// New returns a new avatar that is a hash of name.
+func New(name string) image.Image {
+	c := colorHash.String(name, 187, colorHash.None)
 
-		img := image.NewPaletted(
-			image.Rect(0, 0, edgeLen, edgeLen),
-			color.Palette{c, color.White},
-		)
-		src := image.NewPaletted(
-			image.Rect(0, 0, edgeLen, edgeLen),
-			color.Palette{color.White},
-		)
+	img := image.NewPaletted(
+		image.Rect(0, 0, edgeLen, edgeLen),
+		color.Palette{c, color.White},
+	)
+	src := image.NewPaletted(
+		image.Rect(0, 0, edgeLen, edgeLen),
+		color.Palette{color.White},
+	)
 
-		draw.DrawMask(img, img.Bounds(), src, image.ZP, &circle{image.Point{X: edgeLen / 2, Y: edgeLen / 2}, edgeLen * 0.25}, image.ZP, draw.Over)
+	draw.DrawMask(img, img.Bounds(), src, image.ZP, &circle{image.Point{X: edgeLen / 2, Y: edgeLen / 2}, edgeLen * 0.25}, image.ZP, draw.Over)
 
-		w.Header().Set("Content-Type", "image/png")
-		/* #nosec */
-		png.Encode(w, img)
-	}
+	return img
 }
