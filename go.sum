@@ -1,0 +1,9 @@
+golang.org/x/crypto v0.0.0-20180723164146-c126467f60eb/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
+golang.org/x/image v0.0.0-20171214225156-12117c17ca67/go.mod h1:ux5Hcp/YLpHSI86hEcLt0YII63i6oz57MZXIpbrjZUs=
+golang.org/x/net v0.0.0-20180216171745-136a25c244d3/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
+golang.org/x/text v0.0.0-20180208041248-4e4a3210bb54/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
+mellium.im/reader v0.0.4/go.mod h1:rtqlYmkQriWPf1vKtmH0iIellTSRU/1JUFV8MVS6vek=
+mellium.im/sasl v0.1.1/go.mod h1:vmQYTr1V4pFjgdorcqVEwA4WXck2n1JLx30pawPsSuY=
+mellium.im/xmlstream v0.13.1/go.mod h1:PDwtcQeiAyF7FrUBRWnVO91nIskvhOFYzOeftngiM7Q=
+mellium.im/xmpp v0.9.0 h1:xbrIopplkizD+1cyihUc23L0hFk4sQhZhjetK8l1SDw=
+mellium.im/xmpp v0.9.0/go.mod h1:Vs4gsNv+vnF4lYpBD63cjfwLIOqGqmdMJpgMhNwkGro=
